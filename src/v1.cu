@@ -50,11 +50,6 @@ __global__ void cudaKernel(int n, double* gpuWeights, int* gpuG, int* gpuTempGri
 
 void ising( int *G, double *w, int k, int n)
 {
-	FILE *fptr;
-	fptr = fopen("v1data.csv","a");
-	if(fptr==NULL)
-		perror("File Error");
-
 	GpuTimer timer;
 	// Array to store weights in GPU memory //
   double *gpuWeights;
@@ -114,8 +109,7 @@ void ising( int *G, double *w, int k, int n)
   cudaMemcpy(G, gpuG, n*n*sizeof(int), cudaMemcpyDeviceToHost);
 	// Stop timing //
 	timer.Stop();
-	fprintf(fptr,"%g,%d,%d,%d,%d\n", timer.Elapsed(),n ,k,GRID_SIZE,BLOCK_SIZE);
-	fclose(fptr);
+	printf("V1\nn: %d\nk: %d\nExecution Time(ms): %g\nGRID_SIZE: %d\nBLOCK_SIZE: %d\n",n,k,timer.Elapsed(),GRID_SIZE,BLOCK_SIZE);
 	// Free allocated memory from the GPU //
 	cudaFree(gpuG);
 	cudaFree(gpuTempGrid);

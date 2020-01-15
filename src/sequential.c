@@ -4,10 +4,6 @@
 
 void ising(int *G, double *w, int k, int n)
 {
-  FILE *fptr;
-  fptr = fopen("seqdata.csv","a");
-  if(fptr==NULL)
-    perror("File Error");
   struct timeval start, end;
   // Start timing //
   gettimeofday(&start, NULL);
@@ -74,6 +70,5 @@ void ising(int *G, double *w, int k, int n)
   // Stop timing //
   gettimeofday(&end, NULL);
   time = (double)((end.tv_usec - start.tv_usec)/1.0e6 + end.tv_sec - start.tv_sec);
-  fprintf(fptr,"%d,%d,%f\n",n,k,time);
-  fclose(fptr);
+  printf("Sequential\nn: %d\nk: %d\nExecution time(sec): %f\n",n,k,time);
 }
