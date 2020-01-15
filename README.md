@@ -18,13 +18,13 @@ git clone https://github.com/vagzikopis/IsingCuda.git
 ```bash
 cd src
 make
-./validate_v1 or ./validate_v2 or ./validate_v3
+./validate_v1 or ./validate_v2 or ./validate_v3 or ./validate_sequential
 ```
 ### Local Execution Time Test (Nvidia GPU prerequisite)
 ```bash
 cd src
 make
-./v1 $n $k or ./v2 $n $k or ./v3 $n $k
+./v1 $n $k or ./v2 $n $k or ./v3 $n $k or ./sequential $n $k
 ```
 ### Aristotle University HPC Validation Test
 ```bash
