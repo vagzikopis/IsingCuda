@@ -1,4 +1,4 @@
-#include "ising.h"
+#include "../inc/ising.h"
 #include <sys/time.h>
 #include <string.h>
 

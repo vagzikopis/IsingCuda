@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "gputimer.h"
+#include "../inc/gputimer.h"
 
 __global__ void cudaKernel(int n, double* gpuWeights, int* gpuG, int* gpuTempGrid, int* flag)
 {
@@ -109,7 +109,7 @@ void ising( int *G, double *w, int k, int n)
   cudaMemcpy(G, gpuG, n*n*sizeof(int), cudaMemcpyDeviceToHost);
 	// Stop timing //
 	timer.Stop();
-	printf("V1\nn: %d\nk: %d\nExecution Time(ms): %g\nGRID_SIZE: %d\nBLOCK_SIZE: %d\n",n,k,timer.Elapsed(),GRID_SIZE,BLOCK_SIZE);
+	printf("[V1] n: %d\tk: %d\tExecution Time(ms): %g\tGRID_SIZE: %d\tBLOCK_SIZE: %d\n",n,k,timer.Elapsed(),GRID_SIZE,BLOCK_SIZE);
 	// Free allocated memory from the GPU //
 	cudaFree(gpuG);
 	cudaFree(gpuTempGrid);
