@@ -102,8 +102,8 @@ void ising( int *G, double *w, int k, int n)
 
     cudaMemcpy(&flag, gpuFlag, sizeof(int), cudaMemcpyDeviceToHost);
     // Break if the lattice remained the same as before //
-    // if(flag==0)
-    //   break;
+     if(flag==0)
+       break;
 	}
 	// Transfer data back to CPU memory and store them in G //
   cudaMemcpy(G, gpuG, n*n*sizeof(int), cudaMemcpyDeviceToHost);
