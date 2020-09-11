@@ -1,8 +1,8 @@
 # Ising Model
 
 Implement in CUDA the evolution of an Ising model in two dimensions for a given number of steps k.
-For more information about the Ising model visit the above [link](https://en.wikipedia.org/wiki/Ising_model)
-To execute the produced executable files Nvidia GPU is necessary. Parameters were chosen for optimal performance on Nvidia Tesla P100
+For more information about the Ising model visit the above [link](https://en.wikipedia.org/wiki/Ising_model).
+To execute the produced executable files, an Nvidia GPU is necessary.  Parameters tuning for optimal performance was implemented on an Nvidia Tesla P100.
 
 ## Installation
 
@@ -27,6 +27,7 @@ make
 ./v1 $n $k or ./v2 $n $k or ./v3 $n $k or ./sequential $n $k
 ```
 ### Aristotle University HPC Validation Test
+Test whether the CUDA implementations return valid results or not
 ```bash
 cd src
 make
@@ -35,8 +36,8 @@ cd batch
 sbatch validate_v1.sh or sbatch validate_v2.sh or sbatch validate_v3.sh
 ```
 ### Aristotle University Time Test (Nvidia GPU prerequisite)
-To edit parameters n(square lattice axis) and k(iterations), edit v1.sh or v2.sh or v3.sh.
-Results are printed on slurm file. Read results with command ```tail -f slurm``` .
+To edit parameters n(square lattice axis) and k(iterations), edit v1.sh or v2.sh or v3.sh files.
+Results are returned in slurm file formats. Access results with command  ```tail -f slurm*``` .
 ```bash
 cd src
 make
