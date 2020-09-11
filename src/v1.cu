@@ -38,12 +38,18 @@ __global__ void cudaKernel(int n, double* gpuWeights, int* gpuG, int* gpuTempGri
       gpuTempGrid[n*momentRow+momentCol] = gpuG[n*momentRow+momentCol];
     }else if(weightFactor > 0.00001)
     {
-      gpuTempGrid[n*momentRow+momentCol] = 1;
+      	gpuTempGrid[n*momentRow+momentCol] = 1;
+		if (gpuG[n*momentRow+momentCol] == -1)
+		{
 			*flag = 1;
+		}
     }else
     {
-      gpuTempGrid[n*momentRow+momentCol] = -1;
+     	gpuTempGrid[n*momentRow+momentCol] = -1;
+		if (gpuG[n*momentRow+momentCol] == 1)
+		{
 			*flag = 1;
+		}	
     }
   }
 }

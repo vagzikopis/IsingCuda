@@ -48,11 +48,13 @@ void ising(int *G, double *w, int k, int n)
         }else if(weightFactor > 0.00001)
         {
           tempGrid[n*j+i] = 1;
-          flag=1;
+          if(G[n*j+i] == -1)
+              flag = 1;
         }else
         {
           tempGrid[n*j+i] = -1;
-          flag=1;
+          if(G[n*j+i] == 1)
+              flag = 1;
         }
       }
     }

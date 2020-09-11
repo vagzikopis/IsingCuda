@@ -47,11 +47,17 @@ __global__ void cudaKernel(int n, double* gpuWeights, int* gpuG, int* gpuTempGri
 			}else if(weightFactor > 0.00001)
 			{
 				gpuTempGrid[n*i+j] = 1;
-        *flag = 1;
+				if (gpuG[n*i+j] == -1)
+				{
+						*flag = 1;
+				}
 			}else
 			{
 				gpuTempGrid[n*i+j] = -1;
-        *flag = 1;
+				if (gpuG[n*i+j] == -1)
+				{
+					*flag = 1;
+				}
 			}
 		}
 	}
